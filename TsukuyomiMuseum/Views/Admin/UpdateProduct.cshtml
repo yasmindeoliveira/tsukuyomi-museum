@@ -4,7 +4,9 @@
 
     <form asp-controller="Admin" asp-action="UpdateProduct" method="post" class="title-card py-4 px-4">
         @Html.AntiForgeryToken()
-        <input asp-for="product.ProductId" type="hidden" />
+
+        <input asp-for="product.ProductId" type="hidden"/>
+
         <div class="mb-3">
             <label>Nome:</label>
             <input asp-for="product.Name" type="text" class="form-control"/>

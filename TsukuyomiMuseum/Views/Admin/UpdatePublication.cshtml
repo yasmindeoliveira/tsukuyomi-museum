@@ -5,6 +5,8 @@
     <form asp-controller="Admin" asp-action="UpdatePublication" method="post" class="title-card py-4 px-4">
         @Html.AntiForgeryToken()
 
+        <input asp-for="PublicationId" type="hidden"/>
+
         <div class="mb-3">
             <label>Titolo:</label>
             <input asp-for="Title" type="text" class="form-control"/>

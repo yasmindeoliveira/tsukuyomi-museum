@@ -189,6 +189,13 @@ namespace TsukuyomiMuseum.Controllers
                 }
 
                 Event Modello = new();
+                Modello.EventId = evento.EventId;
+                Modello.Name = evento.Name;
+                Modello.PhotoUrl = evento.PhotoUrl;
+                Modello.Day = evento.Day;
+                Modello.Description = evento.Description;
+                Modello.Price = evento.Price;
+                Modello.Responsable = evento.Responsable;
 
                 return View("UpdateEvent", Modello);
             }
@@ -296,6 +303,10 @@ namespace TsukuyomiMuseum.Controllers
                 }
 
                 Publication Modello = new();
+                Modello.PublicationId = publication.PublicationId;
+                Modello.Title = publication.Title;
+                Modello.PhotoUrl = publication.PhotoUrl;
+                Modello.Description = publication.Description;
 
                 return View("UpdatePublication", Modello);
             }

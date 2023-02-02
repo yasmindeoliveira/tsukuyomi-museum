@@ -1,0 +1,47 @@
+﻿@model Event
+
+<div class="container">
+
+    <form asp-controller="Admin" asp-action="CreateEvent" method="post" class="title-card py-4 px-4">
+        @Html.AntiForgeryToken()
+
+        <div class="mb-3">
+            <label>Nome:</label>
+            <input asp-for="Name" type="text" class="form-control"/>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Giorno:</label>
+            <input asp-for="Day" type="text" class="form-control" />
+            <span asp-validation-for="Day" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Descrizione:</label>
+            <textarea asp-for="Description" rows="10" class="d-block w-100"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>URL Foto:</label>
+            <input asp-for="PhotoUrl" type="text" class="form-control"/>
+            <span asp-validation-for="PhotoUrl" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Prezzo:</label>
+            <input asp-for="Price" type="text" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Responsabile:</label>
+            <input asp-for="Responsable" type="text" class="form-control" />
+            <span asp-validation-for="Responsable" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-info">Salva</button>
+    </form>
+
+</div>

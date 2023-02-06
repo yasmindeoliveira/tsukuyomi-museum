@@ -13,12 +13,7 @@ namespace TsukuyomiMuseum.Controllers
     {
         public IActionResult Index()
         {
-            using (MuseumContext db = new MuseumContext())
-            {
-                List<Product> productList = db.Products.ToList();
-                return View("Index", productList);
-            }
-            
+            return View();
         }
 
         // ---------------------------------- CreateProduct ----------------------------------

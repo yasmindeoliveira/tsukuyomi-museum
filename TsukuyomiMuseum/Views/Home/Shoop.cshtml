@@ -1,5 +1,77 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model List<Product>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-12">
+                <a class="btn btn-primary" href="@Url.Action("CreateProduct", "Admin")">Nuovo Prodotto</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col">
+
+                @if (Model is not null)
+                {
+
+                    @foreach (Product product in Model)
+                    {
+                        <div class="card my-4" style="width: 24rem;">
+
+                            <img src=@product.PhotoUrl class="card-img-top p-2" alt="@product.ProductId">
+
+                            <div class="card-body text-tabella">
+
+                                <h5 class="card-title title-card">@product.Name</h5>
+                                <p class="card-text">@product.Description</p>
+                                <p class="card-text" style="color: darkred">@product.Price €</p>
+
+                                <div class="bottoni-action">
+                                    <a class="btn btn-primary m-3" href="@Url.Action( "Details", "Admin", new { id = product.ProductId } )" role="button">
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+
+                                    </a>
+
+
+
+                                    <a class="btn btn-warning m-3" href="@Url.Action( "UpdateProduct", "Admin", new { id = product.ProductId } )" role="button">
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity">
+                                            <polygon points="14 2 18 6 7 17 3 17 3 13 14 2"></polygon><line x1="3" y1="22" x2="21" y2="22"></line></svg>
+
+                                    </a>
+
+
+                                    <form asp-controller="Admin" asp-action="Remove" asp-route-nome="@product.ProductId" method="post">
+                                        <button type="submit" class="btn btn-danger m-3">
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity">
+                                                <polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+
+                                        </button>
+                                    </form>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    }
+                
+                }
+
+                
+
+            </div>
+
+        </div>
+
+    </div>

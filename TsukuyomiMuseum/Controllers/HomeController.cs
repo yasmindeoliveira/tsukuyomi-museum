@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using TsukuyomiMuseum.Database;
 using TsukuyomiMuseum.Models;
 
 namespace TsukuyomiMuseum.Controllers
@@ -20,17 +21,29 @@ namespace TsukuyomiMuseum.Controllers
 
         public IActionResult Gallery()
         {
-            return View();
+            using (MuseumContext db = new MuseumContext())
+            {
+                List<Publication> productList = db.Publications.ToList();
+                return View("Gallery", productList);
+            }
         }
 
         public IActionResult Events()
         {
-            return View();
+            using (MuseumContext db = new MuseumContext())
+            {
+                List<Event> productList = db.Events.ToList();
+                return View("Events", productList);
+            }
         }
 
         public IActionResult Shoop()
         {
-            return View();
+            using (MuseumContext db = new MuseumContext())
+            {
+                List<Product> productList = db.Products.ToList();
+                return View("Shoop", productList);
+            }
         }
 
         public IActionResult Privacy()
